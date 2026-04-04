@@ -95,31 +95,29 @@ Com base nos dados tratados, as perguntas feitas a seguir foram respondidas e an
 
 ## 6. Insights Obtidos
 
-A análise aprofundada da malha de suprimentos revela que a operação atual encontra-se em um estado crítico de instabilidade. Com 61% das entregas sofrendo interrupções, exige que haja uma transição urgente de uma logística majoritariamente focada em custos para uma gestão orientada à mitigação de riscos.
-
-A partir do cruzamento de variáveis climáticas, geopolíticas e operacionais, consolidamos os seguintes direcionamentos estratégicos:
+A partir da análise do comportamento das variáveis climáticas, geopolíticas e operacionais no tempo de entrega dos suprimentos, as principais conclusões foram:  
 
 * **O modal maritimo (Sea):**
 
-Embora inevitável para o transporte de grandes volumes, este é o gargalo central da cadeia. Com o maior tempo de trânsito padrão (40 dias), ele apresenta um Índice de Exposição 26 vezes maior que o aéreo. Na prática, este modal é altamente intolerante a crises: eventos climáticos extremos (furacões) elevam seu tempo de entrega em até 760%, e interrupções reais triplicam sua latência, adicionando 36 dias extras ao cronograma. Este atraso residual é suficiente para paralisar operações e gerar multas severas.
+Embora inevitável para o transporte de grandes volumes, este é o gargalo central da cadeia. Com o maior tempo médio de entrega (LT = 40 dias), ele apresenta um Índice de Exposição **26 vezes** maior que o aéreo. Na prática, este modal é altamente vulnerável a crises como mostra o projeto que em cenários de eventos climáticos extremos (furacões) elevam o tempo médio de entrega do modal em até **760%**, e interrupções reais **triplicam** sua latência, *adicionando **36 dias** extras* ao cronograma. Este atraso residual é suficiente para paralisar operações e gerar multas severas.
 
 * **Os modais terrestres (Road & Rail):**
 
-Na comparação entre os modais terrestres, o caminhão (Road) consolida-se como a principal rota de escape frente ao trem (Rail). A rigidez estrutural da malha ferroviária impede desvios durante crises geopolíticas ou climáticas, fazendo com que o trem também triplique seu tempo de espera (Lead Time médio) sob interrupção. O modal rodoviário, por permitir redirecionamento dinâmico de rotas, absorve melhor o impacto e garante entregas até 18% mais ágeis (uma vantagem de 8 dias) em cenários de caos climático.
+Na comparação entre os modais terrestres, o caminhão (**Road**) consolida-se como a principal rota de escape frente ao trem (**Rail**). A rigidez estrutural da malha ferroviária impede desvios durante crises geopolíticas ou climáticas, fazendo com que o trem também **triplique** seu tempo médio de espera (Lead Time médio) sob interrupção. O modal **rodoviário (Road)**, por permitir redirecionamento dinâmico de rotas, absorve melhor o impacto e garante entregas até **18% mais ágeis** (*uma vantagem de **8 dias***) em cenários de intercorrência climática.
 
 **O modal Aéreo (Air):**
 
-O transporte aéreo (Air) provou ser o único amortecedor confiável do sistema. Além de ser o mais rápido (2 dias), sua resiliência é incomparável: a pior interrupção possível adiciona apenas 1 dia ao seu prazo final. Ele é pouquíssimo afetado por bloqueios geográficos e severidade climática, justificando seu custo elevado como a via exclusiva para peças de reposição crítica.
+O transporte **aéreo (Air)** provou ser o único amortecedor confiável do sistema. Além de ser o mais rápido (**2 dias**), sua resiliência é incomparável dado que a pior interrupção possível adiciona apenas **1 dia** ao seu prazo final. Ele raramente tem as operações paralisadas por bloqueios geográficos e/ou severidade climática, justificando seu custo elevado como a via exclusiva para peças de reposição crítica.
 
-Assim como ocorre com o caminhão no modal rodoviário (Road), o transporte aéreo usufrui da possibilidade de mudança de rota em situações de bloqueios aéreos temporários como vem acontecendo atualmente no Oriente Médio, dado ao conflito entre Irã (Pérsia) e Israel/Estados Unidos.
+Porém, assim como ocorre com o caminhão no modal **rodoviário (Road)**, o transporte aéreo usufrui da possibilidade de mudança de rota em situações de bloqueios aéreos temporários como vem acontecendo atualmente no Oriente Médio, uma das rotas mais movimentadas do mundo, dado ao conflito entre Irã (Pérsia) e Israel/Estados Unidos.
 
 
 
 ## 7. Conclusão e Plano de Ação
 
-A fim de reduzir a taxa de falhas, a estratégia de suprimentos deve adotar políticas de Safety Stock (estoque de segurança) dimensionadas pelo Índice de Exposição, e não apenas pela média histórica de entrega.
+A fim de reduzir a taxa de falhas, a estratégia de suprimentos é altamente aconselhável a adoção de políticas de **Safety Stock** (*estoque de segurança*) principalmente para os suprimentos transportados pelo modal **martimo (Sea)** dimensionadas pelo Índice de Exposição, e não apenas pela média histórica de entrega.
 
-Cargas alocadas no modal marítimo (Sea) ou ferroviário (Rail) em rotas de alto risco geopolítico exigem margens de estoque mais agressivas, enquanto o modal rodoviário (Road) deve ser institucionalizado como a alternativa prioritária de redundância terrestre.
+Cargas alocadas no modal **marítimo (Sea)** ou **ferroviário (Rail)** em rotas de alto risco geopolítico exigem margens de estoque mais agressivas, enquanto o modal **rodoviário (Road)** deve ser institucionalizado como a alternativa prioritária em casos extremos dado a sua flexibilidade de redirecionamento.
 
 
 
