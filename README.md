@@ -1,9 +1,11 @@
 
 Repository dedicated to MVP Project for Data Analysis and Best Practices sprint for PUC-Rio Data Science and Analytics Post Graduate course.
 
-# MVP Data Analysis - Logistica
+# MVP Data Analysis - Identificação de Gargalos e Gestão de Riscos
 
-Este projeto é focado na extração, tratamento e limpeza (ETL) a fim de obter insights a partir da análise exploratória dos dados utilizando a plataforma Google Colab. O notebook com todo o passo a passo do MVP está disponível neste repositório e pode ser acessado através deste link.
+Este projeto é focado na extração, tratamento e limpeza (ETL) para realização da análise exploratória dos dados (EDA) a fim de obter insights acionáveis que suportam a tomada de decisão de negócios e o desenvolvimento de estratégias utilizando a plataforma Google Colab. 
+
+O notebook com todo o passo a passo do MVP está disponível neste repositório e pode ser acessado através deste [link](https://github.com/juliafarah/MVP_Data_Analysis/blob/main/MVP_Data_Analysis.ipynb).
 
 Ferramentas utilizadas:
 
@@ -49,15 +51,15 @@ O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie 
 
 ## 4. Pré-Processamento dos dados
 
-1. Tratamento de valores faltantes ou nulo
-2. Resumo estatístico
-4. Verificação tipo de cada atributo
-5. Verificação de valores inconsistentes em campos críticos como Lead_Time_Days e Distancia_Km  
-6. Alteração do tipo do atributo Date de dtype object ➔ datetime
-7. Verificação do tipo de distribuição dos atributo númerico
-8. Matriz de Correlação
-9. Verificação de outleirs (anomalias)
-10. Aplicação do Ordinal Encoding para o atributo weather_condition (1 a 4) para representar a hierarquia de severidade climática, permitindo que o modelo matemático compreenda a escala de intensidade dos eventos.
+* Tratamento de valores faltantes, nulos e duplicidade
+* Resumo estatístico
+* Verificação tipo de cada atributo
+* Verificação de valores inconsistentes em campos críticos como Lead_Time_Days e Distancia_Km  
+* Alteração do tipo do atributo Date de dtype object ➔ datetime
+* Verificação do tipo de distribuição dos atributo númerico
+* Matriz de Correlação
+* Verificação de outleirs (anomalias)
+* Aplicação do Ordinal Encoding para o atributo weather_condition (1 a 4) para representar a hierarquia de severidade climática, permitindo que o modelo matemático compreenda a escala de intensidade dos eventos.
 
 O notebook com todo este passo a passo e análise do MVP está disponível neste repositório e pode ser acessado através deste [link](https://github.com/juliafarah/MVP_Data_Analysis/blob/main/MVP_Data_Analysis.ipynb).
 
