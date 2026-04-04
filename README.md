@@ -3,23 +3,32 @@ Repository dedicated to MVP Project for Data Analysis and Best Practices sprint 
 
 # MVP Data Analysis - Logistica
 
+Este projeto é focado na extração, tratamento e limpeza (ETL) a fim de obter insights a partir da análise exploratória dos dados utilizando a plataforma Google Colab. O notebook com todo o passo a passo do MVP está disponível neste repositório e pode ser acessado através deste link.
+
+Ferramentas utilizadas:
+
+* **Google Colab** (Plataforma de Dados)
+* **Python** (Linguagem de Programação)
+* **Pandas/Matplotlib/Seaborn** (Visualização Gráfica)
+
+
 ## **1. Descrição do Problema**
 
 Em uma economia globalizada, a eficiência da cadeia de suprimentos é um fator crítico para a competitividade e sobrevivência das multinacionais. O gerenciamento de uma malha logística em escala global, que opera simultaneamente com quatro modais de transporte (Marítimo, Aéreo, Rodoviário e Ferroviário), apresenta uma altíssima complexidade. Atrasos ou interrupções nesse fluxo, frequentemente causados por fatores externos incontroláveis, podem comprometer a continuidade das operações de ponta a ponta, gerando gargalos produtivos, quebra de nível de serviço (SLA) e perdas financeiras significativas.
 
 ## **2. Objetivo e Definição do Problema**
 
-Este projeto utiliza um dataset de movimentações de carga globais para identificar os principais fatores de risco e interrupção na cadeia de suprimentos. 
+Este projeto utiliza um dataset de movimentações de carga globais para identificar os principais fatores de risco e interrupção na cadeia de suprimentos de 2024 a 2026 (YTD). 
 
-O objetivo é conduzir uma Análise Exploratória de Dados (EDA) que avalie a vulnerabilidade e o tempo de entrega (Lead Time) de cada modal frente a variáveis críticas, como instabilidade geopolítica e severidade climática. O foco é extrair insights claros para suportar a tomada de decisão estratégica da gerência, visando a mitigação de atrasos e a construção de uma operação logística mais resiliente.
+O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie a vulnerabilidade e o tempo de entrega (Lead Time) de cada modal frente a variáveis críticas, como instabilidade geopolítica e severidade climática. O foco é extrair insights claros para suportar a tomada de decisão estratégica da gerência, visando a mitigação de atrasos e a construção de uma operação logística mais resiliente.
 
 * Tipo de Aprendizado: **Supervisionado (Classificação)**
 
 
 ## 3. Coleta dos dados:
 
-* **Dataset:** <.csv>
-* **Fonte:** Kaggle
+* **Dataset:**  `global_supply_chain_risk_2026.csv`
+* **Fonte:** [Kaggle](https://www.kaggle.com/datasets/nudratabbas/global-supply-chain-risk-and-logistics-2024-2026)
 * **Definição dos Atributos:**
   | Coluna | Descrição |
   | :--- | :--- |
@@ -59,43 +68,17 @@ Com base nos dados tratados, as perguntas feitas a seguir foram respondidas e an
 
 **Perguntas a serem respondidas:**
 
-  1. Qual a taxa de interrupção geral?
-<img width="375" height="350" alt="image" src="https://github.com/user-attachments/assets/8c5fa0ff-fb86-42d7-a228-24dad69fc5d5" />
-  
-
-
+  1. Qual a taxa de atraso/interrupção geral?
   2. Qual modal impacta mais a media do tempo de entrega?
-
-<img width="529" height="370" alt="image" src="https://github.com/user-attachments/assets/99316d29-2b45-4534-9137-698467876ee4" />
-
-
-  3. Qual é a probabilidade da carga ultrapassar a média propria do modal de tempo de entrega, ou seja, atrasar de acordo com o risco geopolitico?
-
-<img width="840" height="390" alt="image" src="https://github.com/user-attachments/assets/f5ffa752-96f3-40da-9879-7f5d4cac0b86" />
-
-
-
+  3. Qual é a probabilidade da carga extrapolar o LT Médio do modal dado ao Risco Geopolítico?
   4. Qual o impacto real das condições climáticas no atraso médio de cada modal?
-
-<img width="645" height="395" alt="image" src="https://github.com/user-attachments/assets/31924f4a-8dad-44a8-8bbf-ae42c9275e59" />
-
-
-
   5. Quão exposto o Lead Time médio de cada modal fica com o impacto do risco geopolítico?
-
-<img width="679" height="290" alt="image" src="https://github.com/user-attachments/assets/c8125a70-750d-4c39-9b7c-acd839bbf6e9" />
-
-
   6. Qual o impacto das interrupções no Lead Time médio por modal?
-
-<img width="590" height="390" alt="image" src="https://github.com/user-attachments/assets/6d9ef96d-9ce4-4c88-8ba4-9792711daebe" />
-
-
 
 
 ## 6. Insights Obtidos
 
-A partir da análise do comportamento das variáveis climáticas, geopolíticas e operacionais no tempo de entrega dos suprimentos, as principais conclusões foram:  
+A partir da taxa de interrupção de **61%** e da análise do comportamento das variáveis climáticas, geopolíticas e operacionais no tempo de entrega dos suprimentos, as principais conclusões foram: 
 
 * **O modal maritimo (Sea):**
 
