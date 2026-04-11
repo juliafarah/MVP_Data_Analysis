@@ -85,7 +85,7 @@ Com base nos dados tratados, as perguntas feitas a seguir foram respondidas e an
   1. Qual a taxa de atraso/interrupção geral?
   2. Qual modal impacta mais a média do tempo de entrega?
   3. Qual o atraso real em dias para cada modal dada a condição climática?
-  4. Quantas entregas foram On-time/Delayed/Critical de cada modal? (*Análise de Nível de Serviço (SLA)*)
+  4. Quantas entregas de cada modal foram On-time/Delayed/Critical? (*Análise de Nível de Serviço (SLA)*)
   5. Como se distribui a confiabilidade operacional e como o clima altera a performance de entrega (SLA)?
   6. Qual é o impacto das interrupções (`Disruption_Occurred`) no tempo médio de entrega (*Lead Time médio*) de cada modal?
   7. Qual é a probabilidade da entrega ultrapassar o tempo médio de entrega (*LT Médio*) do modal dado ao Risco Geopolítico?
