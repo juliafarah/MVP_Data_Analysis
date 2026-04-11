@@ -1,5 +1,5 @@
 
-Repository dedicated to MVP Project for Data Analysis and Best Practices sprint for PUC-Rio Data Science and Analytics Post Graduate course.
+*Repository dedicated to MVP Project for Data Analysis and Best Practices sprint for PUC-Rio Data Science and Analytics Post Graduate course.*
 
 # MVP Data Analysis - Identificação de Gargalos e Gestão de Riscos
 
@@ -10,8 +10,8 @@ O notebook com todo o passo a passo do MVP está disponível neste repositório 
 Ferramentas utilizadas:
 
 * **Google Colab** (Plataforma de Dados)
-* **Python** (Linguagem de Programação)
-* **Pandas/Matplotlib/Seaborn** (Visualização Gráfica)
+* **Python (Pandas/NumPy)** (Linguagem de Programação)
+* **Matplotlib/Seaborn** (Visualização Gráfica)
 
 
 ## **1. Descrição do Problema**
@@ -22,7 +22,7 @@ Em uma economia globalizada, a eficiência da cadeia de suprimentos é um fator 
 
 Este projeto utiliza um dataset de movimentações de carga globais para identificar os principais fatores de risco e interrupção na cadeia de suprimentos de 2024 a 2026 (YTD). 
 
-O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie a vulnerabilidade e o tempo de entrega (Lead Time) de cada modal frente a variáveis críticas, como instabilidade geopolítica e severidade climática. O foco é extrair insights claros para suportar a tomada de decisão estratégica da gerência, visando a mitigação de atrasos e a construção de uma operação logística mais resiliente.
+O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie a vulnerabilidade e o tempo de entrega (Lead Time) de cada modal frente a variáveis críticas, como instabilidade geopolítica e severidade climática. O foco é extrair insights claros para suportar a tomada de decisão estratégica da gerência, e porpor planos de ação para mitigar de atrasos e a construir uma operação logística mais resiliente.
 
 * Tipo de Aprendizado: **Supervisionado (Classificação)**
 
@@ -31,7 +31,7 @@ O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie 
 
 * **Dataset:**  `global_supply_chain_risk_2026.csv`
 * **Fonte:** [Kaggle](https://www.kaggle.com/datasets/nudratabbas/global-supply-chain-risk-and-logistics-2024-2026)
-* **Definição dos Atributos:**
+* **Definição dos Atributos originais do dataset:**
   | Coluna | Descrição |
   | :--- | :--- |
   | Shipment_ID | Identificador único da carga.
@@ -48,20 +48,32 @@ O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie 
   | Lead_Time_Days | Tempo real de entrega (Variável Alvo para Regressão).
   | Disruption_Occurred | Flag de interrupção ou atraso (0: Não / 1: Sim).
 
+* **Atributos criados posteriormente (Discretização)**
+  
+  | Coluna | Descrição |
+  | :--- | :--- |
+  | Lead_Time_Category | Categoria de LT (On-time, Delayed, Critical).
+  | Weather_Severity_Rank | Ordenação númerica dada a severidade da condição climática (1 a 4).
+  | Geopolitical_Risk_Level | Categorias para o Risco Geopolítico (Low Risk, Medium Risk, High Risk).
+
 
 ## 4. Pré-Processamento dos dados
 
-* Tratamento de valores faltantes, nulos e duplicidade
-* Resumo estatístico
-* Verificação tipo de cada atributo
-* Verificação de valores inconsistentes em campos críticos como Lead_Time_Days e Distancia_Km  
-* Alteração do tipo do atributo Date de dtype object ➔ datetime
-* Verificação do tipo de distribuição dos atributo númerico
-* Matriz de Correlação
-* Verificação de outleirs (anomalias)
-* Aplicação do Ordinal Encoding para o atributo weather_condition (1 a 4) para representar a hierarquia de severidade climática, permitindo que o modelo matemático compreenda a escala de intensidade dos eventos.
-
 O notebook com todo este passo a passo e análise do MVP está disponível neste repositório e pode ser acessado através deste [link](https://github.com/juliafarah/MVP_Data_Analysis/blob/main/MVP_Data_Analysis.ipynb).
+
+1. Importando as bibliotecas e carregando o dataset.
+2. Detalhes dos atributos.
+3. Verificação de valores nulos.
+4. Checar duplicidade.
+5. Resumo estatístico.
+6. Converter o tipo da coluna Date de *object* para *datetime*.
+7. Definindo colunas por tipo (numéricas e categóricas).
+8. Verificação manual de inconsistências comuns em Supply Chain.
+9. Matriz de Correlação.
+10. Verificando outliers (*anomalias*).
+11. Tipo de distribuição de cada atributo numéricos.
+12. Discretização (`Lead_Time_Category`).
+13. Criação da coluna `Weather_Severity_Rank` para rankear a severidade de cada condição climática.  
 
 
 ## 5. Análise Exploratória dos Dados
@@ -71,39 +83,64 @@ Com base nos dados tratados, as perguntas feitas a seguir foram respondidas e an
 **Perguntas a serem respondidas:**
 
   1. Qual a taxa de atraso/interrupção geral?
-  2. Qual modal impacta mais a media do tempo de entrega?
-  3. Qual é a probabilidade da carga extrapolar o LT Médio do modal dado ao Risco Geopolítico?
-  4. Qual o impacto real das condições climáticas no atraso médio de cada modal?
-  5. Quão exposto o Lead Time médio de cada modal fica com o impacto do risco geopolítico?
-  6. Qual o impacto das interrupções no Lead Time médio por modal?
+  2. Qual modal impacta mais a média do tempo de entrega?
+  3. Qual o atraso real em dias para cada modal dada a condição climática?
+  4. Quantas entregas foram On-time/Delayed/Critical de cada modal? (*Análise de Nível de Serviço (SLA)*)
+  5. Como se distribui a confiabilidade operacional e como o clima altera a performance de entrega (SLA)?
+  6. Qual é o impacto das interrupções (`Disruption_Occurred`) no tempo médio de entrega (*Lead Time médio*) de cada modal?
+  7. Qual é a probabilidade da entrega ulytrapassar o tempo médio de entrega (*LT Médio*) do modal dado ao Risco Geopolítico?
+  8. Quão exposto o Lead Time médio de cada modal fica com o impacto do risco geopolítico? (*Índice de Exposição & Impacto no SLA*)
 
 
-## 6. Insights Obtidos
+## 6. Insights Obtidos (Conclusão)
 
-A partir da taxa de interrupção de **61%** e da análise do comportamento das variáveis climáticas, geopolíticas e operacionais no tempo de entrega dos suprimentos, as principais conclusões foram: 
+A partir da taxa de interrupção de **61%** e da análise do comportamento das variáveis climáticas, geopolíticas e operacionais no tempo de entrega dos suprimentos, as principais conclusões foram:
 
-* **O modal maritimo (Sea):**
+**O modal maritimo (Sea)**: *Embora inevitável para o transporte de grandes volumes, é o **ponto de maior gargalo da cadeia**.*
 
-Embora inevitável para o transporte de grandes volumes, este é o gargalo central da cadeia. Com o maior tempo médio de entrega (LT = 40 dias), ele apresenta um Índice de Exposição **26 vezes** maior que o aéreo. Na prática, este modal é altamente vulnerável a crises como mostra o projeto que em cenários de eventos climáticos extremos (furacões) elevam o tempo médio de entrega do modal em até **760%**, e interrupções reais **triplicam** sua latência, *adicionando **36 dias** extras* ao cronograma. Este atraso residual é suficiente para paralisar operações e gerar multas severas.
+* Possui o maior tempo médio (LT = 40 dias) e um Índice de Exposição **26 vezes** maior que o aéreo.
 
-* **Os modais terrestres (Road & Rail):**
+* Em cenários extremos (furacões), o tempo de entrega sofre picos de até **760%**.
 
-Na comparação entre os modais terrestres, o caminhão (**Road**) consolida-se como a principal rota de escape frente ao trem (**Rail**). A rigidez estrutural da malha ferroviária impede desvios durante crises geopolíticas ou climáticas, fazendo com que o trem também **triplique** seu tempo médio de espera (Lead Time médio) sob interrupção. O modal **rodoviário (Road)**, por permitir redirecionamento dinâmico de rotas, absorve melhor o impacto e garante entregas até **18% mais ágeis** (*uma vantagem de **8 dias***) em cenários de intercorrência climática.
-
-**O modal Aéreo (Air):**
-
-O transporte **aéreo (Air)** provou ser o único amortecedor confiável do sistema. Além de ser o mais rápido (**2 dias**), sua resiliência é incomparável dado que a pior interrupção possível adiciona apenas **1 dia** ao seu prazo final. Ele raramente tem as operações paralisadas por bloqueios geográficos e/ou severidade climática, justificando seu custo elevado como a via exclusiva para peças de reposição crítica.
-
-Porém, assim como ocorre com o caminhão no modal **rodoviário (Road)**, o transporte aéreo usufrui da possibilidade de mudança de rota em situações de bloqueios aéreos temporários como vem acontecendo atualmente no Oriente Médio, uma das rotas mais movimentadas do mundo, dado ao conflito entre Irã (Pérsia) e Israel/Estados Unidos.
+* Interrupções reais triplicam sua latência, adicionando **36 dias extras** ao cronograma, um atraso residual suficiente para paralisar operações e gerar multas severas.
 
 
+**Os modais terrestres (Road & Rail)**: *Na comparação terrestre, o caminhão (Road) consolida-se como a principal válvula de escape frente ao trem (Rail).*
 
-## 7. Conclusão e Plano de Ação
+* A rigidez estrutural do modal ferroviário (Rail) impede desvios em crises, fazendo seu Lead Time também **triplicar** sob interrupção.
 
-A fim de reduzir a taxa de falhas, a estratégia de suprimentos é altamente aconselhável a adoção de políticas de **Safety Stock** (*estoque de segurança*) principalmente para os suprimentos transportados pelo modal **martimo (Sea)** dimensionadas pelo Índice de Exposição, e não apenas pela média histórica de entrega.
+* O modal rodoviário (Road) permite redirecionamento dinâmico. Isso faz com que absorva melhor o impacto, garantindo entregas até **18% mais ágeis** (uma vantagem de 8 dias) em cenários de intercorrência climática.
 
-Cargas alocadas no modal **marítimo (Sea)** ou **ferroviário (Rail)** em rotas de alto risco geopolítico exigem margens de estoque mais agressivas, enquanto o modal **rodoviário (Road)** deve ser institucionalizado como a alternativa prioritária em casos extremos dado a sua flexibilidade de redirecionamento.
 
+**O modal Aéreo (Air)**: *Provou ser o único amortecedor confiável de todo o sistema logístico.*
+
+* É incrivelmente resiliente: além de ser o mais rápido (**2 dias**), a pior interrupção possível **adiciona apenas 1 dia** ao seu prazo final.
+
+* Justifica seu custo elevado como via exclusiva para peças críticas, pois raramente é paralisado por bloqueios climáticos ou geográficos. 
+
+* Apesar de sua resiliência, não atua como substituto em massa para os demais modais devido a severas restrições de peso, volume e custo.
+
+* Assim como os caminhões, usufrui da mudança de rota sob bloqueios. Um exemplo atual é a adaptação de rotas no Oriente Médio frente ao conflito entre Irã (Pérsia) e Israel/EUA, comprovando sua capacidade de contornar crises geopolíticas de forma rápida.
+
+
+## 7. Possíveis Planos de Ação
+
+**1. Implementar Safety Stock Dinâmico**
+* Abandonar o uso exclusivo de médias históricas de entrega. O estoque de segurança deve ser dimensionado pelo Índice de Exposição (Lead Time x Risco Geopolítico).
+
+* Como as cargas do modal **Marítimo (Sea)** possuem volumes massivos e não podem ser migradas para o modal aéreo em caso de crise, a aplicação de margens de estoque agressivas torna-se a única defesa viável para evitar o desabastecimento.
+
+**2. Estabelecer o modal rodoviário como a rota de escape oficial e imediata em cenários de crise aguda no continente.** 
+
+* Por suportar perfis de carga similares aos trens, sua flexibilidade de redirecionamento dinâmico deve ser ativada antes que a carga fique retida em modais rígidos como o Ferroviário (Rail).
+
+**3. Usufruir do Modal Aéreo (Air) para "Micro-Contingências"**. 
+
+* Dado o seu **baixo Índice de Exposição (8)** e as severas restrições de capacidade volumétrica e custo, *o frete aéreo jamais deve ser acionado na tentativa de absorver gargalos da operação principal (marítima).* Seu uso deve ser estritamente protocolado para "salvar" a linha de produção, transportando exclusivamente peças de reposição urgentes, críticas e de alto valor agregado.
+
+**4. Desenvolver um alerta preventivo frente a previsões de eventos climáticos extremos (furacões)**. 
+
+* Como é fisicamente inviável transferir os grandes volumes do mar para o ar de última hora, a estratégia deve focar em *antecipar os prazos de despacho* ou *redirecionar preventivamente as cargas para portos fora da rota da tempestade*, mitigando a exposição à ruptura de quase **70% do SLA**.
 
 
 
