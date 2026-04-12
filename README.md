@@ -10,7 +10,7 @@ O notebook com todo o passo a passo do MVP está disponível neste repositório 
 Ferramentas utilizadas:
 
 * **Google Colab** (Plataforma de Dados)
-* **Python (Pandas/NumPy)** (Linguagem de Programação)
+* **Python** (Linguagem de Programação)
 * **Matplotlib/Seaborn** (Visualização Gráfica)
 
 
@@ -27,7 +27,7 @@ O objetivo é conduzir uma **Análise Exploratória de Dados (EDA)** que avalie 
 * Tipo de Aprendizado: **Supervisionado (Classificação)**
 
 
-## 3. Coleta dos dados:
+## 3. Coleta dos dados
 
 * **Dataset:**  `global_supply_chain_risk_2026.csv`
 * **Fonte:** [Kaggle](https://www.kaggle.com/datasets/nudratabbas/global-supply-chain-risk-and-logistics-2024-2026)
@@ -73,7 +73,7 @@ O notebook com todo este passo a passo e análise do MVP está disponível neste
 10. Verificando outliers (*anomalias*).
 11. Tipo de distribuição de cada atributo numéricos.
 12. Discretização (`Lead_Time_Category`).
-13. Criação da coluna `Weather_Severity_Rank` para rankear a severidade de cada condição climática.  
+13. Criação da coluna `Weather_Severity_Rank` para ordernar cada condição climática por grau de severidade.  
 
 
 ## 5. Análise Exploratória dos Dados
@@ -98,7 +98,7 @@ A partir da taxa de interrupção de **61%** e da análise do comportamento das 
 
 **O modal maritimo (Sea)**: *Embora inevitável para o transporte de grandes volumes, é o **ponto de maior gargalo da cadeia**.*
 
-* Possui o maior tempo médio (LT = 40 dias) e um Índice de Exposição **26 vezes** maior que o aéreo.
+* Possui o maior tempo médio (**LT = 40 dias**) e um Índice de Exposição **26 vezes** maior que o aéreo.
 
 * Em cenários extremos (furacões), o tempo de entrega sofre picos de até **760%**.
 
@@ -109,7 +109,7 @@ A partir da taxa de interrupção de **61%** e da análise do comportamento das 
 
 * A rigidez estrutural do modal ferroviário (Rail) impede desvios em crises, fazendo seu Lead Time também **triplicar** sob interrupção.
 
-* O modal rodoviário (Road) permite redirecionamento dinâmico. Isso faz com que absorva melhor o impacto, garantindo entregas até **18% mais ágeis** (uma vantagem de 8 dias) em cenários de intercorrência climática.
+* O modal rodoviário (Road) permite redirecionamento dinâmico. Isso faz com que absorva melhor o impacto, garantindo entregas até **18% mais ágeis** (uma vantagem de **8 dias**) em cenários de intercorrência climática.
 
 
 **O modal Aéreo (Air)**: *Provou ser o único amortecedor confiável de todo o sistema logístico.*
@@ -120,7 +120,7 @@ A partir da taxa de interrupção de **61%** e da análise do comportamento das 
 
 * Apesar de sua resiliência, não atua como substituto em massa para os demais modais devido a severas restrições de peso, volume e custo.
 
-* Assim como os caminhões, usufrui da mudança de rota sob bloqueios. Um exemplo atual é a adaptação de rotas no Oriente Médio frente ao conflito entre Irã (Pérsia) e Israel/EUA, comprovando sua capacidade de contornar crises geopolíticas de forma rápida.
+* Assim como os caminhões, usufrui da mudança de rota sob bloqueios. Um exemplo atual é a adaptação de rotas no Oriente Médio frente ao **conflito entre Irã (Pérsia) e Israel/EUA**, comprovando sua capacidade de contornar crises geopolíticas de forma rápida.
 
 
 ## 7. Possíveis Planos de Ação
