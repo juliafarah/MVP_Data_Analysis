@@ -73,7 +73,9 @@ O notebook com todo este passo a passo e análise do MVP está disponível neste
 10. Verificando outliers (*anomalias*).
 11. Tipo de distribuição de cada atributo numéricos.
 12. Discretização (`Lead_Time_Category`).
-13. Criação da coluna `Weather_Severity_Rank` para ordernar cada condição climática por grau de severidade.  
+13. Normalização.
+14. Ordinal Encoding (da variavel Clima).
+15. Criação da coluna `Weather_Severity_Rank` para ordernar cada condição climática por grau de severidade.  
 
 
 ## 5. Análise Exploratória dos Dados
@@ -142,6 +144,14 @@ A partir da taxa de interrupção de **61%** e da análise do comportamento das 
 
 * Como é fisicamente inviável transferir os grandes volumes do mar para o ar de última hora, a estratégia deve focar em *antecipar os prazos de despacho* ou *redirecionar preventivamente as cargas para portos fora da rota da tempestade*, mitigando a exposição à ruptura de quase **70% do SLA**.
 
+
+## 8. Avaliação e Feedback Técnico
+
+Este projeto da sprint de Análise de Dados e Boas Práticas da Pós-graduação em Data Science and Analytics da PUC-Rio e a nota recebida foi: **9.6** / 10
+
+**Status:** *Todas as sugestões do professor **já foram implementadas** na versão atual deste repositório.*
+
+<img width="1411" height="457" alt="image" src="https://github.com/user-attachments/assets/65845fb5-bc10-4a6c-a51a-55e983dfa4fd" />
 
 
 
